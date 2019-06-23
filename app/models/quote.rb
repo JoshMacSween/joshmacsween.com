@@ -1,4 +1,14 @@
 class Quote < ApplicationRecord
-  validates :saying, presence: true, length: {minimum: 20, maximum: 500}
-  validates :author, presence: true, length: { minimum: 2, maximum: 30}
+  require 'rest-client'
+
+  URLNAME = "https://stoicapi.vardy.codes/api/quotes/random"
+
+  def content
+    #what do here
+  end
+
+  def author
+    #what do here
+  end
+
 end
