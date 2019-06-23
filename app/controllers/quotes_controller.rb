@@ -1,17 +1,13 @@
 class QuotesController < ApplicationController
+  def show
+    response = RestClient.get"https://stoicapi.vardy.codes/api/quotes/random"
 
-  def create
-    @quote = Quote.create(quote_params)
+    json = JSON.parse response
+    @quoteobject = json["quoteobject"]
 
-    if quote.invalid?
-      flash[:error] = 'Something went wrong'
-    end
-
-    redirect_to root_path
   end
 
-  def quote_params
-    params.require(:content, :author, :source)
+  def new
   end
 
 end
