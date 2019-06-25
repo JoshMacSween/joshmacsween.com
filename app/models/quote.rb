@@ -2,23 +2,19 @@
 
 class Quote < ApplicationRecord
   require 'rest-client'
+  require 'json'
 
-  URLNAME = 'https://stoicapi.vardy.codes/api/quotes/random'
+  class << self
+    def get
+      puts RestClient.get('https://stoicapi.vardy.codes/api/quotes/random').body
+    end
+    def getAuthor
+      puts RestClient.get('https://stoicapi.vardy.codes/api/quotes/random').body.author
+    end
 
-  def initialize
-    RestClient.get('https://stoicapi.vardy.codes/api/quotes/random')
-  end
-
-  def index
-    @quote = Quote.all
-    render json: {status: "SUCESS", message: "Loaded all quotes", data: quotes}, status: :ok
-  end
-
-  def content
-    # what do here
-  end
-
-  def author
-    # what do here
+    def index
+      RestClient.get('https://stoicapi.vardy.codes/api/quotes/random')
+      @quote = Quote.all
+    end
   end
 end

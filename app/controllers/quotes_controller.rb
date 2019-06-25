@@ -1,13 +1,11 @@
 class QuotesController < ApplicationController
   def show
-    response = RestClient.get"https://stoicapi.vardy.codes/api/quotes/random"
-
-    json = JSON.parse response
-    @quoteobject = json["quoteobject"]
+    @quote = Quote.new
 
   end
 
   def new
+    @quote = Quote.new
   end
 
 end
