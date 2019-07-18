@@ -1,1 +1,22 @@
-  
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">Josh MacSween</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <ul class="navbar-nav mr-auto">
+    <li>
+      <%= link_to "Home", root_path , class: "nav-link"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About", about_path, class: "nav-link"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Portfolio', portfolio_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Contact", contact_path, class: "nav-link"%>
+    </li>
+  </div>
+</nav>
