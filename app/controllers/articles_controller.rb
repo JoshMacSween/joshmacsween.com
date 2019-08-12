@@ -1,5 +1,6 @@
-class ArticlesController < ApplicationController
+# frozen_string_literal: true
 
+class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
@@ -7,7 +8,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article has been succesfully created"
+      flash[:notice] = 'Article has been succesfully created'
       @article.save
       redirect_to article_path(@article)
     else
@@ -20,8 +21,8 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :description)
   end
-
 end
